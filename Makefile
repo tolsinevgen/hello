@@ -1,12 +1,13 @@
+TARGET=main
 
-all: main
-	./main
+all: $(TARGET)
+	./$(TARGET)
 
 clean:
-	rm -f main.o main
+	rm -f $(TARGET).o $(TARGET)
 
-main: main.o
-	g++ -o main main.o
+main: $(TARGET).o
+	g++ -o $(TARGET) $(TARGET).o
 
-main.o: main.cpp
-	g++ -c main.cpp
+%.o: %.cpp
+	g++ -c $< -o $@
