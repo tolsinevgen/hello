@@ -1,12 +1,14 @@
-TARGET=main
+TARGET=hello
+SRCS=main.cpp
+OBJS=$(patsubst %.cpp,%.o,$(SRCS))
 
 all: $(TARGET)
 
 clean:
-	rm -f $(TARGET).o $(TARGET)
+	rm -f $(OBJS) $(TARGET)
 
-main: $(TARGET).o
-	g++ -o $(TARGET) $(TARGET).o
+$(TARGET): $(OBJS)
+	g++ -o $@ $<
 
 %.o: %.cpp
 	g++ -c $< -o $@
