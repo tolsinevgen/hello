@@ -1,7 +1,6 @@
 TARGET=main
 
 all: $(TARGET)
-	./$(TARGET)
 
 clean:
 	rm -f $(TARGET).o $(TARGET)
